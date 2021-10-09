@@ -1,0 +1,64 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+//Sub-rotina do tipo Procedimento. Imprimir o IMC.
+void imprimirImc(float imc){
+  
+  printf ("\n\t\t SEU IMC é: %.2f", imc);
+
+}
+
+//Sub-rotina do tipo Funções, retorna dados para o programa principal continuar o algoritimo.
+float calculoImc(float peso, float altura, float imc){
+  float valorImc;
+
+  valorImc = peso/ (altura*altura);
+  
+  return valorImc;
+}
+
+//Sub-rotina do tipo Procedimento, retorna apenas informação ao programa principal.
+void resultadoTotal(float imc){
+  if (imc < 19){
+    printf("\n\t\t\t MUITO MAGRO");
+  }else{
+    if(imc >= 19 && imc < 25){
+      printf("\n\t\t NORMAL");
+    }else{
+      if(imc >= 25 && imc <30){
+        printf("\n\t\t SOBRE PESO");
+      }else{
+        if(imc >= 30 && imc <= 40){
+          printf("\n\t\t NORMAL");
+        }else{
+          if (imc > 40){
+            printf ("\n\t\t OBSIDADE GRAVE");
+          }
+        }
+      }
+    }
+  }
+
+}
+
+int main() {
+  
+  float peso , altura, imc;
+  
+  printf("\nInforme seu peso em Kg:");
+   scanf ("%f", &peso);
+   
+  printf("\nInforme sua altura em m:");
+  scanf("%f", &altura);
+ 
+imc = calculoImc(peso, altura, imc);
+//Sub-rotina Função.
+
+  resultadoTotal(imc);
+  //Sub-rotina do tipo Procedimento.
+
+  imprimirImc(imc);
+  //Sub-rotina do tipo Procedimento.
+  
+  return 0;
+}
